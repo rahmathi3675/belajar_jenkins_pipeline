@@ -11,7 +11,7 @@ pipeline {
                 withSonarQubeEnv('SonarScanner') { 
                     sh """
                         sonar-scanner \
-                        -Dsonar.projectKey=belajar-jenkins-pipeline \
+                        -Dsonar.projectKey=belajar-pipeline \
                         -Dsonar.sources=.
                     """
                 }
