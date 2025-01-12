@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node{
-            label "linux || java17"
+            label "windows && java17"
         }
     }
     stages {
