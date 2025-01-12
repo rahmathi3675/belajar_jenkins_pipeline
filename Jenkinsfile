@@ -12,7 +12,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('SonarScanner') { 
-                    sh 'sonar-scanner -Dsonar.projectKey=belajar-pipeline -Dsonar.sources=.'
+                    sh 'SonarScanner -Dsonar.projectKey=belajar-pipeline -Dsonar.sources=.'
                 }
             }
         }
