@@ -15,19 +15,13 @@ pipeline {
         stage("Test") {
             steps {
                 echo("Hello Test")
-                sh "error"
+                //sh "error"
             }
         }
 
         stage("Deploy") {
             steps {
                 echo("Hello Deploy")
-            }
-        }
-
-        stage("Hello") {
-            steps {
-                echo("Hello Pipeline")
             }
         }
     }
