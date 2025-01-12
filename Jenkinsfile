@@ -16,7 +16,7 @@ pipeline {
                         sh("./mvnw clean compile test-compile")
                     } else {
                         // Untuk Windows
-                        bat(".\\mvnw clean compile test-compile")
+                        bat("./mvnw clean compile test-compile")
                     }
                 }
                 echo("Finish Build")
@@ -32,7 +32,7 @@ pipeline {
                         sh("./mvnw clean compile test-compile")
                     } else {
                         // Untuk Windows
-                        bat(".\\mvnw clean compile test-compile")
+                        bat("./mvnw clean compile test-compile")
                     }
                 }
                 echo("Finish Build")
