@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        sonarqube 'SonarScanner' // Nama scanner yang Anda konfigurasi di Jenkins
+        sonarqube "SonarScanner"
     }
     stages {
         stage("Hello") {
@@ -11,7 +11,6 @@ pipeline {
         }
         stage('SonarQube Analysis') {
             steps {
-                // Gunakan environment SonarQube yang dikonfigurasi di Jenkins
                 withSonarQubeEnv('SonarQube') { 
                     sh """
                         sonar-scanner \
