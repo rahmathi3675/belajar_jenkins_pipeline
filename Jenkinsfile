@@ -9,6 +9,7 @@ pipeline {
         stage("Build") {
             steps {
                 echo("Hello Build1")
+                sleep(10)
                 echo("Hello Build2")
                 echo("Hello Build3")
             }
@@ -17,6 +18,7 @@ pipeline {
         stage("Test") {
             steps {
                 echo("Hello Test1")
+                sleep(10)
                 echo("Hello Test2")
                 echo("Hello Test3")
                 //sh "error"
@@ -26,6 +28,7 @@ pipeline {
         stage("Deploy") {
             steps {
                 echo("Hello Deploy1")
+                sleep(10)
                 echo("Hello Deploy2")
                 echo("Hello Deploy3")
             }
