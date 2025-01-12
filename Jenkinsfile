@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        git 'Default'
+        sonarQube 'SonarScanner'
     }
     stages {
         stage("Hello") {
@@ -12,7 +12,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('SonarScanner') { 
-                    sh 'SonarScanner -Dsonar.projectKey=belajar-pipeline -Dsonar.sources=.'
+                    sh 'sonar-scanner  -Dsonar.projectKey=belajar-pipeline -Dsonar.sources=.'
                 }
             }
         }
