@@ -8,10 +8,10 @@ pipeline {
         }
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('SonarQube') { 
+                withSonarQubeEnv('SonarScanner') { 
                     sh """
                         sonar-scanner \
-                        -Dsonar.projectKey=belajar_jenkins-pipeline \
+                        -Dsonar.projectKey=belajar-jenkins-pipeline \
                         -Dsonar.sources=.
                     """
                 }
