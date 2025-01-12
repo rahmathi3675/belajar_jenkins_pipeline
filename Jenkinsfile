@@ -13,7 +13,6 @@ pipeline {
             steps {
                 withSonarQubeEnv('SonarScanner') { 
                     sh """
-                        SonarScanner \
                         -Dsonar.projectKey=belajar-pipeline \
                         -Dsonar.sources=.
                     """
