@@ -1,7 +1,8 @@
 pipeline {
     agent {
         node{
-            label "linux"
+            label "(windows && java17) || linux"
+            //label "(windows && java17)"
         }
     }
     stages {
@@ -9,7 +10,15 @@ pipeline {
         stage("Build") {
             steps {
                 echo("Start Build")
-                sh("./mvnw clean compile test-compile")
+                script {
+                    if (isUnix()) {
+                        // Untuk Linux
+                        sh("./mvnw clean compile test-compile")
+                    } else {
+                        // Untuk Windows
+                        bat(".\\mvnw clean compile test-compile")
+                    }
+                }
                 echo("Finish Build")
             }
         }
@@ -17,7 +26,15 @@ pipeline {
         stage("Test") {
             steps {
                 echo("Start Build")
-                sh("./mvnw test")
+                script {
+                    if (isUnix()) {
+                        // Untuk Linux
+                        sh("./mvnw clean compile test-compile")
+                    } else {
+                        // Untuk Windows
+                        bat(".\\mvnw clean compile test-compile")
+                    }
+                }
                 echo("Finish Build")
             }
         }
