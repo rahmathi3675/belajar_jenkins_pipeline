@@ -8,8 +8,8 @@ pipeline {
         }
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('SonarScanner') { 
-                    sh 'sonar-scanner  -Dsonar.projectKey=belajar-pipeline -Dsonar.sources=.'
+                withSonarQubeEnv('sonar') { 
+                    sh "${scannerHome}/bin/sonar-scanner  --version"
                 }
             }
         }
