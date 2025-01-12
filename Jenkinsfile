@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        git 'DefaultGit'
+        git
     }
     stages {
         stage("Hello") {
