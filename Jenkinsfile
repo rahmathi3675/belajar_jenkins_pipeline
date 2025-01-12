@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    tools {
-        sonarqube "SonarScanner"
-    }
     stages {
         stage("Hello") {
             steps {
@@ -14,7 +11,7 @@ pipeline {
                 withSonarQubeEnv('SonarQube') { 
                     sh """
                         sonar-scanner \
-                        -Dsonar.projectKey=<TEST> \
+                        -Dsonar.projectKey=belajar_jenkins-pipeline \
                         -Dsonar.sources=.
                     """
                 }
