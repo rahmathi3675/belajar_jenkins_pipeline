@@ -10,6 +10,12 @@ pipeline {
 
         stage("Build") {
             steps {
+
+                script {
+                    for( int = 0; i < 10; i++){
+                        echo("Script ${i}");
+                    }
+                }
                 echo("Start Build")
                 script {
                     if (isUnix()) {
