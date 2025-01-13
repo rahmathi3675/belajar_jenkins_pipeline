@@ -32,6 +32,16 @@ pipeline {
 
         stage("Test") {
             steps {
+
+                script {
+                    def data = [
+                        "firstName": : "Rahmat",
+                        "lastName": "Hidayat"
+                    ]
+                    writeJSON(file: "data.json", json: data);
+                }
+
+
                 echo("Start Build")
                 script {
                     if (isUnix()) {
