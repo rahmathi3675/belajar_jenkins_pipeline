@@ -1,16 +1,23 @@
 pipeline {
-    agent {
-        node{
-            //label "(windows && java17) || linux"
-            label "linux"
-            //label "(windows && java17)"
-        }
-    }
+    // agent {
+    //     node{
+    //         //label "(windows && java17) || linux"
+    //         label "linux"
+    //         //label "(windows && java17)"
+    //     }
+    // }
     stages {
 
         stage("Build") {
+            agent {
+                node{
+                    label "linux"
+                    //label "(windows && java17)"
+                }
+            }
             steps {
 
+                // GROOVY SCRIPT
                 script {
                     for( int i = 0; i < 10; i++){
                         echo("Script ${i}");
@@ -31,6 +38,11 @@ pipeline {
         }
 
         stage("Test") {
+            agent {
+                node{
+                    label "(windows && java17)"
+                }
+            }
             steps {
 
                 script {
@@ -57,6 +69,13 @@ pipeline {
         }
 
         stage("Deploy") {
+            agent {
+                node{
+                    //label "(windows && java17) || linux"
+                    label "linux"
+                    //label "(windows && java17)"
+                }
+            }
             steps {
                 echo("Hello Deploy1")
                 echo("Hello Deploy2")
