@@ -1,11 +1,5 @@
 pipeline {
-    // agent {
-    //     node{
-    //         //label "(windows && java17) || linux"
-    //         label "linux"
-    //         //label "(windows && java17)"
-    //     }
-    // }
+    
     stages {
 
         stage("Build") {
