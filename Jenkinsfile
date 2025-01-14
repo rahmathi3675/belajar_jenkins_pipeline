@@ -6,6 +6,10 @@ pipeline {
         WEB = "bukanprogrammer.com"
         APP = credentials("rahmat_rahasia")
     }
+    options {
+        disableConcurrentBuilds()
+        timeout(time: 1, unit: 'MINUTES') 
+    }
     stages {
 
         stage("Prepare") {
