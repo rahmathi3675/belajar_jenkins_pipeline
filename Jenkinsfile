@@ -45,13 +45,13 @@ pipeline {
             }
             steps {
 
-                script {
-                    def data = [
-                        "firstName": : "Rahmat",
-                        "lastName": "Hidayat"
-                    ]
-                    writeJSON(file: "data.json", json: data);
-                }
+                // script {
+                //     def data = [
+                //         "firstName": : "Rahmat",
+                //         "lastName": "Hidayat"
+                //     ];
+                //     writeJSON(file: "data.json", json: data);
+                // }
 
 
                 echo("Start Build")
