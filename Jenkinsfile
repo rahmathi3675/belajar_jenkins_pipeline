@@ -4,6 +4,7 @@ pipeline {
         AUTHOR = "RAHMAT HIDAYAT"
         EMAIL = "rahmathi3675@gmail.com"
         WEB = "bukanprogrammer.com"
+        APP = credentials("rahmat_rahasia")
     }
     stages {
 
@@ -14,6 +15,9 @@ pipeline {
                 }
             }
             steps {
+                echo("App User : ${APP_USR}")
+                echo("App Password : ${APP_PSW}")
+
                 echo("Author : ${AUTHOR}")
                 echo("Email : ${EMAIL}")
                 echo("Web : ${WEB}")
@@ -21,8 +25,6 @@ pipeline {
                 echo("Start Job : ${env.JOB_NAME}")
                 echo("Start Build : ${env.BUILD_NUMBER}")
                 echo("Branch Name : ${env.BRANCH_NAME}")
-
-
             }
         }
 
