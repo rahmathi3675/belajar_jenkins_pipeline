@@ -1,10 +1,10 @@
 pipeline {
+    agent node
     stages {
         stage("Build") {
             agent {
                 node{
                     label "linux"
-                    //label "(windows && java17)"
                 }
             }
             steps {
