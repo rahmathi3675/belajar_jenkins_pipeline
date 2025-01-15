@@ -6,6 +6,9 @@ pipeline {
         WEB = "bukanprogrammer.com"
         APP = credentials("rahmat_rahasia")
     }
+    tools {
+        sonarScanner 'sonar-scanner'
+    }
     parameters {
         string(name: "NAME", defaultValue: "Guest", description: "What is your name")
         text(name: "DESCRIPTION", defaultValue: "Guest", description: "Tell me you name ?" )
