@@ -7,10 +7,10 @@ pipeline {
         APP = credentials("rahmat_rahasia")
     }
     parameters {
-        .string(name: "NAME", defaultValue: "Guest", description: "What is your name"),
-        .text(name: "DESCRIPTION", defaultValue: "Guest", description: "Tell me you name ?" ),
-        .booleanParams(name: "DEPLOY", defaultValue: "false", description: "Need a deploy ?" ),
-        .choice(name: "SOCIAL_MEDIA", choices: ['Instagram','Facebook','Twitter'], description: "Which Social Media ?" ),
+        .string(name: "NAME", defaultValue: "Guest", description: "What is your name")
+        .text(name: "DESCRIPTION", defaultValue: "Guest", description: "Tell me you name ?" )
+        .booleanParams(name: "DEPLOY", defaultValue: "false", description: "Need a deploy ?" )
+        .choice(name: "SOCIAL_MEDIA", choices: ['Instagram','Facebook','Twitter'], description: "Which Social Media ?" )
         .password(name: "SECRET", defaultValue: "", description: "Encrypt Key" )
     }
     options {
