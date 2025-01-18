@@ -132,7 +132,7 @@ pipeline {
                 ok "Yes, of course"
                 submitter "Rahmat,Hidayat"
                 parameters{
-                    choice( name: "TARGET_ENV", choice: ['DEV,QA,PROD'], description: "Which Envionment ?")
+                    choice( name: "TARGET_ENV", choices: ['DEV,QA,PROD'], description: "Which Envionment ?")
                 }
             }
 
