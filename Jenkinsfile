@@ -42,16 +42,16 @@ pipeline {
                         name "ARC"
                         values "32", "64"
                     }
-                    stages {
-                        stage("OS Setup"){
-                            agent {
-                                node {
-                                    label "linux && java17"
-                                }
+                }
+                stages {
+                    stage("OS Setup"){
+                        agent {
+                            node {
+                                label "linux && java17"
                             }
-                            steps {
-                                echo("Setup ${OS} ${ARC}")
-                            }
+                        }
+                        steps {
+                            echo("Setup ${OS} ${ARC}")
                         }
                     }
                 }
