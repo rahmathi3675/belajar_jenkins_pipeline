@@ -128,9 +128,9 @@ pipeline {
         stage("Deploy") {
 
             input {
-                message: "Can We Deploy ?"
+                message "Can We Deploy ?"
                 ok "Yes, of course"
-                submitter: "Rahmat,Hidayat"
+                submitter "Rahmat,Hidayat"
             }
 
             agent {
