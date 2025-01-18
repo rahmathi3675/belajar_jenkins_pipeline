@@ -1,8 +1,5 @@
 pipeline {
     agent none
-    tools {
-        sonarScanner 'SonarScanner'
-    }
     environment {
         AUTHOR = "RAHMAT HIDAYAT"
         EMAIL = "rahmathi3675@gmail.com"
