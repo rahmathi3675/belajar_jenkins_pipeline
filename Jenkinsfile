@@ -32,23 +32,26 @@ pipeline {
 
         stage("OS Setup") {
             matrix {
-                axis {
-                    name "OS"
-                    values "linux", "windows","mac"
-                }
-                axis {
-                    name "ARC"
-                    values "32", "64"
-                }
-                stages {
-                    stage("OS Setup"){
-                        agent {
-                            node {
-                                label "linux && java17"
+                axes {
+                    
+                    axis {
+                        name "OS"
+                        values "linux", "windows","mac"
+                    }
+                    axis {
+                        name "ARC"
+                        values "32", "64"
+                    }
+                    stages {
+                        stage("OS Setup"){
+                            agent {
+                                node {
+                                    label "linux && java17"
+                                }
                             }
-                        }
-                        steps {
-                            echo("Setup ${OS} ${ARC}")
+                            steps {
+                                echo("Setup ${OS} ${ARC}")
+                            }
                         }
                     }
                 }
