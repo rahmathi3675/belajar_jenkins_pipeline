@@ -1,42 +1,49 @@
 pipeline {
     agent none
+    tools {
+        sonarScanner 'SonarScanner'
+    }
     environment {
         AUTHOR = "RAHMAT HIDAYAT"
         EMAIL = "rahmathi3675@gmail.com"
         WEB = "bukanprogrammer.com"
         APP = credentials("rahmat_rahasia")
+        SONAR_HOST_URL = 'http://192.168.1.5:9095'
+        SONAR_AUTH_TOKEN = 'sqa_ce36010353d043e5da78b6005ada7a1427d159d4'
     }
-    tools {
-        sonarScanner 'sonar-scanner'
+
+    triggers {
+        cron('*/5 * * * *')
     }
-    // parameters {
-    //     string(name: "NAME", defaultValue: "Guest", description: "What is your name")
-    //     text(name: "DESCRIPTION", defaultValue: "Guest", description: "Tell me you name ?" )
-    //     booleanParam(name: "DEPLOY", defaultValue: "false", description: "Need a deploy ?" )
-    //     choice(name: "SOCIAL_MEDIA", choices: ['Instagram','Facebook','Twitter'], description: "Which Social Media ?" )
-    //     password(name: "SECRET", defaultValue: "", description: "Encrypt Key" )
-    // }
+
+    parameters {
+        string(name: "NAME", defaultValue: "Guest", description: "What is your name")
+        text(name: "DESCRIPTION", defaultValue: "Guest", description: "Tell me you name ?" )
+        booleanParam(name: "DEPLOY", defaultValue: "false", description: "Need a deploy ?" )
+        choice(name: "SOCIAL_MEDIA", choices: ['Instagram','Facebook','Twitter'], description: "Which Social Media ?" )
+        password(name: "SECRET", defaultValue: "", description: "Encrypt Key" )
+    }
     options {
         disableConcurrentBuilds()
         timeout(time: 20, unit: 'SECONDS') 
     }
     stages {
-        // stage("Parameter") {
-        //     agent {
-        //         node{
-        //             label "linux && java17"
-        //         }
-        //     }
-        //     steps {
+        stage("Parameter") {
+            agent {
+                node{
+                    label "linux && java17"
+                }
+            }
+            steps {
               
 
-        //         echo("Hello : ${params.NAME}")
-        //         echo("Your Description Is : ${params.DESCRIPTION}")
-        //         echo("Need to Deploy : ${params.DEPLOY}")
-        //         echo("Social Media : ${params.SOCIAL_MEDIA}")
-        //         echo("Your secret is : ${params.SECRET}")
-        //     }
-        // }
+                echo("Hello : ${params.NAME}")
+                echo("Your Description Is : ${params.DESCRIPTION}")
+                echo("Need to Deploy : ${params.DEPLOY}")
+                echo("Social Media : ${params.SOCIAL_MEDIA}")
+                echo("Your secret is : ${params.SECRET}")
+            }
+        }
 
         stage("Prepare") {
             agent {
