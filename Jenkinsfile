@@ -144,9 +144,7 @@ pipeline {
                 }
             }
             steps {
-                echo("Hello Deploy1")
-                echo("Hello Deploy2")
-                echo("Hello Deploy3")
+                echo("Deploy to ${TARGET_ENV}");
             }
         }
     }
