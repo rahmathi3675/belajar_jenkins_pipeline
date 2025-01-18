@@ -131,7 +131,7 @@ pipeline {
                 message "Can We Deploy ?"
                 ok "Yes, of course"
                 submitter "Rahmat,Hidayat"
-                parameters {
+                parameter{
                     choice( name: "TARGET_ENV", choice: ['DEV','QA','PROD'], description: "Which Envionment ?")
                 }
             }
