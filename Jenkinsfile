@@ -9,9 +9,13 @@ pipeline {
         SONAR_AUTH_TOKEN = 'sqa_ce36010353d043e5da78b6005ada7a1427d159d4'
     }
 
-    triggers {
-        cron('*/5 * * * *')
-    }
+
+
+    // triggers {
+    //     cron('*/5 * * * *')
+    //     pollSCM('*/5 * * * *')
+    //     upstream( upstreamProjects: 'job1,job2', treshold: hudson.model.Result.SUCCESS)
+    // }
 
     parameters {
         string(name: "NAME", defaultValue: "Guest", description: "What is your name")
@@ -22,7 +26,7 @@ pipeline {
     }
     options {
         disableConcurrentBuilds()
-        timeout(time: 60, unit: 'SECONDS') 
+        timeout(time: 120, unit: 'SECONDS') 
     }
     stages {
         stage("Parameter") {
@@ -122,6 +126,13 @@ pipeline {
         }
 
         stage("Deploy") {
+
+            input {
+                message: "Can We Deploy ?"
+                ok "Yes, of course"
+                submitter: "Rahmat,Hidayat"
+            }
+
             agent {
                 node{
                     //label "(windows && java17) || linux"
