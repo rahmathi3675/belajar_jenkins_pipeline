@@ -29,6 +29,28 @@ pipeline {
         timeout(time: 120, unit: 'SECONDS') 
     }
     stages {
+        stage("Preparation") {
+            agent {
+                node{
+                    label "linux && java17"
+                }
+            }
+            stages {
+                stage("Prepare Java") {
+                    steps{
+                        echo("Prepare Java")
+                    }
+                }
+            }
+            stages {
+                stage("Prepare Maven") {
+                    steps{
+                        echo("Prepare Maven")
+                    }
+                }
+            }
+        }
+
         stage("Parameter") {
             agent {
                 node{
