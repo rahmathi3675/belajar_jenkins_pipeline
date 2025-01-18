@@ -147,6 +147,23 @@ pipeline {
                 echo("Deploy to ${TARGET_ENV}");
             }
         }
+
+        stage("Release") {
+
+            when {
+                expression {
+                    return params.DEPLOY
+                }
+            }
+            agent {
+                node{
+                   label "linux"
+                }
+            }
+            steps {
+                echo("Release it");
+            }
+        }
     }
     post {
         always {
