@@ -60,6 +60,7 @@ pipeline {
                     }
                     steps{
                         echo("Prepare Java")
+                        sleep(5)
                     }
                 }
                 stage("Prepare Maven") {
@@ -70,6 +71,7 @@ pipeline {
                     }
                     steps{
                         echo("Prepare Maven")
+                        sleep(5)
                     }
                 }
             }
