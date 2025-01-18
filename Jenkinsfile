@@ -17,13 +17,13 @@ pipeline {
     //     upstream( upstreamProjects: 'job1,job2', treshold: hudson.model.Result.SUCCESS)
     // }
 
-    // parameters {
-    //     string(name: "NAME", defaultValue: "Guest", description: "What is your name")
-    //     text(name: "DESCRIPTION", defaultValue: "Guest", description: "Tell me you name ?" )
-    //     booleanParam(name: "DEPLOY", defaultValue: "false", description: "Need a deploy ?" )
-    //     choice(name: "SOCIAL_MEDIA", choices: ['Instagram','Facebook','Twitter'], description: "Which Social Media ?" )
-    //     password(name: "SECRET", defaultValue: "", description: "Encrypt Key" )
-    // }
+    parameters {
+        string(name: "NAME", defaultValue: "Guest", description: "What is your name")
+        text(name: "DESCRIPTION", defaultValue: "Guest", description: "Tell me you name ?" )
+        booleanParam(name: "DEPLOY", defaultValue: "false", description: "Need a deploy ?" )
+        choice(name: "SOCIAL_MEDIA", choices: ['Instagram','Facebook','Twitter'], description: "Which Social Media ?" )
+        password(name: "SECRET", defaultValue: "", description: "Encrypt Key" )
+    }
     options {
         disableConcurrentBuilds()
         timeout(time: 120, unit: 'SECONDS') 
@@ -130,7 +130,7 @@ pipeline {
             input {
                 message "Can We Deploy ?"
                 ok "Yes, of course"
-                submitter "Rahmat,Hidayat"
+                submitter "Rahmat Hidayat"
                 parameters{
                     choice( name: "TARGET_ENV", choices: ['DEV','QA','PROD'], description: "Which Envionment ?")
                 }
